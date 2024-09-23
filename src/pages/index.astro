@@ -1,13 +1,14 @@
 ---
 import Layout from "../components/Layout.astro";
 import { useStoryblok } from "@storyblok/astro";
-import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+import StoryblokComponent from "@storyblok/astro/components/StoryblokComponent.astro";
+import { isPreview } from "../utils/isPreview";
 const { slug } = Astro.params;
 
 const story = await useStoryblok(
   `cdn/stories/${slug === undefined ? "home" : slug}`,
   {
-    version: "draft",
+    version: isPreview ? "draft" : "published",
   },
   {},
   Astro
