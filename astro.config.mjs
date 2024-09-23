@@ -3,7 +3,7 @@ import vue from '@astrojs/vue';
 import mkcert from 'vite-plugin-mkcert';
 import tailwind from '@astrojs/tailwind';
 import storyblok from '@storyblok/astro';
-import vercel from "@astrojs/vercel/serverless";
+import vercelServerless from '@astrojs/vercel/serverless';
 import { loadEnv } from 'vite';
 import { isPreview } from './src/utils/isPreview';
 
@@ -48,13 +48,5 @@ export default defineConfig({
     },
   }),
 
-  adapter: vercel(
-    isPreview
-      ? {}
-      : {
-          isr: {
-            expiration: 60,
-          },
-        }
-  )
+  adapter: vercelServerless()
 });
