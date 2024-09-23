@@ -1,11 +1,33 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-
-import sitemap from '@astrojs/sitemap';
-
-// https://astro.build/config
+import { defineConfig } from 'vite';
+import vue from '@astrojs/vue';
+import mkcert from 'vite-plugin-mkcert';
+import tailwind from '@astrojs/tailwind';
+import { loadEnv } from 'vite';
+import storyblok from '@storyblok/astro';
+const {STORYBLOK_API_KEY} = loadEnv(process.env.NODE_ENV, process.cwd() , "");
+const isLocal = true;
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
+  integrations: [vue(), tailwind(), 
+    //  add storyblok integration
+    storyblok({
+        accessToken: STORYBLOK_API_KEY,
+        livePreview : true,
+        enableFallbackComponent : true,
+        components : {
+          default_page : "storyblok/DefaultPage",
+          hero_section : "storyblok/HeroSection",
+          grid : "storyblok/FeaturedSection",
+          newsletter : "storyblok/NewsletterSection",
+          technology : "storyblok/TechnologySection",
+
+        }
+    }),
+  ],
+  output : "server",
+  ...(isLocal && { vite : {
+    server : {
+        https : true
+    },
+    plugins : [mkcert()]
+  }})
 });

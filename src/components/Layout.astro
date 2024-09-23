@@ -1,0 +1,29 @@
+---
+const { title } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title || 'My Astro Site'}</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+<div class="max-w-screen-xl mx-auto px-5">
+
+    <main>
+      <slot />
+    </main>
+    <footer class="my-20"> <p class="text-center text-sm text-slate-500">
+      Copyright © 2024
+      Astroship. All rights reserved.
+      </p> </footer>
+</div>
+
+  </body>
+</html>

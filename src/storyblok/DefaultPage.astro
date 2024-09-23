@@ -1,0 +1,12 @@
+---
+import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
+
+const { blok } = Astro.props;
+---
+<section>
+    {
+        blok.body.map((component: any) => (
+            <StoryblokComponent blok={component} />
+        ))
+    }
+</section>

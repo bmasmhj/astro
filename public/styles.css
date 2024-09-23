@@ -1,0 +1,40 @@
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+
+.fraunces {
+  font-family: "Fraunces", serif;
+}
+
+.text-primary{
+     color : #be7c68;
+}
+
+.border-primary{
+    border-color : #be7c68;
+}
+
+.bg-primary{
+    background-color : #be7c68;
+}
+
+/* background-position: 80vw 0; */
+
+
+/* background-position: 60vw 0; */
+.backgroundPosition{
+    background-position: 60vw 0;
+}
+
+@media(max-width: 767px) {
+    .backgroundPosition{
+        background-position: 72vw 0;
+    }
+}
+
+@media(max-width: 1024px) {
+    .backgroundPosition{
+        background-position: 80vw 0!important;
+    }
+}
