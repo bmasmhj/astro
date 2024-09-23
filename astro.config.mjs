@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import vue from '@astrojs/vue';
-// import mkcert from 'vite-plugin-mkcert';
 import tailwind from '@astrojs/tailwind';
 import storyblok from '@storyblok/astro';
 import vercelServerless from '@astrojs/vercel/serverless';
