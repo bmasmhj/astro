@@ -4,8 +4,8 @@ import mkcert from 'vite-plugin-mkcert';
 import tailwind from '@astrojs/tailwind';
 import { loadEnv } from 'vite';
 import storyblok from '@storyblok/astro';
-const {STORYBLOK_API_KEY} = loadEnv(process.env.NODE_ENV, process.cwd() , "");
-const isLocal = true;
+const {STORYBLOK_API_KEY , STORYBLOK_LOCAL } = loadEnv(process.env.NODE_ENV, process.cwd() , "");
+const isLocal = STORYBLOK_LOCAL === "true";
 export default defineConfig({
   integrations: [vue(), tailwind(), 
     //  add storyblok integration
